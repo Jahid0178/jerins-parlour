@@ -1,0 +1,11 @@
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #fff;
+  margin-bottom: 10px;
+  display: inline-block;
+}
