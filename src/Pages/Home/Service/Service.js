@@ -1,5 +1,4 @@
 import { Button, CardMedia, Grid, Paper, Typography } from "@mui/material";
-import { Box } from "@mui/system";
 import React from "react";
 
 const Service = (props) => {
