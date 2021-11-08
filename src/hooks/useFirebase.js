@@ -3,9 +3,10 @@ import {
   GoogleAuthProvider,
   getAuth,
   signInWithPopup,
+  onAuthStateChanged,
   signOut,
 } from "firebase/auth";
-import { useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 
 initializeFirebase();
 
@@ -19,19 +20,31 @@ const useFirebase = () => {
   const googleProvider = new GoogleAuthProvider();
 
   const signInWithGoogle = () => {
-    signInWithPopup(auth, googleProvider).then(
-      ((result) => {
-        setUser(result.user);
-      }).catch((error) => {
-        setError(error.message);
+    signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
       })
-    );
+      .catch((error) => {
+        setError(error.message);
+      });
   };
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
+  }, []);
 
   const logOut = () => {
     signOut(auth)
       .then(() => {
-        user({});
+        setUser({});
       })
       .catch((error) => {
         setError(error.message);
@@ -39,6 +52,7 @@ const useFirebase = () => {
   };
 
   return {
+    user,
     signInWithGoogle,
     logOut,
     error,

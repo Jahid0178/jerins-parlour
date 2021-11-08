@@ -1,7 +1,7 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
-import AuthProvider from "./contexts/AuthProvider/AuthProvider";
+import AuthProvider from "./contexts/AuthProvider";
 import Home from "./Pages/Home/Home/Home";
 import LogIn from "./Pages/LogIn/LogIn/LogIn";
 import Register from "./Pages/LogIn/Register/Register";

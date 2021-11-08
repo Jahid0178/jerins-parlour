@@ -3,8 +3,10 @@ import { Container, Typography, Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import "./LogIn.css";
 import { Link } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 
 const LogIn = () => {
+  const { signInWithGoogle } = useAuth();
   return (
     <Container>
       <Box className="login-container">
@@ -24,6 +26,7 @@ const LogIn = () => {
                 mb: 1,
               }}
               color="primary"
+              onClick={signInWithGoogle}
             >
               Continue With Google
             </Button>
