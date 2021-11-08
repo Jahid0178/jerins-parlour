@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
   return (
@@ -31,9 +32,11 @@ const Navigation = () => {
           >
             Jerin's <br /> Parlour
           </Typography>
-          <Button variant="contained" sx={{ px: 4, py: 1 }} color="primary">
-            Login
-          </Button>
+          <NavLink to="/login" style={{ textDecoration: "none" }}>
+            <Button variant="contained" sx={{ px: 4, py: 1 }} color="primary">
+              Login
+            </Button>
+          </NavLink>
         </Toolbar>
       </AppBar>
     </Box>
