@@ -34,6 +34,11 @@ const Navigation = () => {
           >
             Jerin's <br /> Parlour
           </Typography>
+          <NavLink to="/dashboard" style={{ textDecoration: "none" }}>
+            <Button variant="contained" sx={{ px: 4, py: 1, mr: 1 }}>
+              Dashboard
+            </Button>
+          </NavLink>
           {user.email ? (
             <NavLink to="/" style={{ textDecoration: "none" }}>
               <Button

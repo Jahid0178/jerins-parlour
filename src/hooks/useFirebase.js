@@ -19,12 +19,13 @@ const useFirebase = () => {
   // Providers
   const googleProvider = new GoogleAuthProvider();
 
-  // User signin with google
-  const signInWithGoogle = () => {
+  // User sign in with google
+  const signInWithGoogle = (history) => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
         setUser(user);
+        history.push("/home");
       })
       .catch((error) => {
         setError(error.message);

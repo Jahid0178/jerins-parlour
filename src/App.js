@@ -2,6 +2,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import AuthProvider from "./contexts/AuthProvider";
+import DashboardHome from "./Pages/Dashboard/DashboardHome/DashboardHome";
 import Home from "./Pages/Home/Home/Home";
 import LogIn from "./Pages/LogIn/LogIn/LogIn";
 import Register from "./Pages/LogIn/Register/Register";
@@ -28,6 +29,9 @@ function App() {
             </Route>
             <Route path="/home">
               <Home></Home>
+            </Route>
+            <Route path="/dashboard">
+              <DashboardHome></DashboardHome>
             </Route>
             <Route path="/login">
               <LogIn></LogIn>

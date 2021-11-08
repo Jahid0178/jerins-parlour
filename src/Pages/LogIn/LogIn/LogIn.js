@@ -2,11 +2,17 @@ import React from "react";
 import { Container, Typography, Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import "./LogIn.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
 const LogIn = () => {
   const { signInWithGoogle } = useAuth();
+  const history = useHistory();
+
+  const handleGoogleSignIn = () => {
+    signInWithGoogle(history);
+  };
+
   return (
     <Container>
       <Box className="login-container">
@@ -26,7 +32,7 @@ const LogIn = () => {
                 mb: 1,
               }}
               color="primary"
-              onClick={signInWithGoogle}
+              onClick={handleGoogleSignIn}
             >
               Continue With Google
             </Button>
