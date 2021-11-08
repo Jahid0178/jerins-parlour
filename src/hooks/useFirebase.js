@@ -6,7 +6,7 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useState } from "react";
 
 initializeFirebase();
 
@@ -19,6 +19,7 @@ const useFirebase = () => {
   // Providers
   const googleProvider = new GoogleAuthProvider();
 
+  // User signin with google
   const signInWithGoogle = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
@@ -30,6 +31,7 @@ const useFirebase = () => {
       });
   };
 
+  // Observer user
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -41,6 +43,7 @@ const useFirebase = () => {
     });
   }, []);
 
+  // Logout user
   const logOut = () => {
     signOut(auth)
       .then(() => {

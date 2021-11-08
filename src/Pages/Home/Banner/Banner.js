@@ -12,7 +12,7 @@ const alignment = {
 const Banner = () => {
   return (
     <Container>
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1, mt: 3 }}>
         <Grid container spacing={2} style={alignment}>
           <Grid item xs={12} sm={12} md={6}>
             <Typography variant="h2" sx={{ fontWeight: 500 }}>
